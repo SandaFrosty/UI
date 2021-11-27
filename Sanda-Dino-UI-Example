@@ -1,0 +1,36 @@
+-- EDIT NEW !!!!!!!! --
+_G.TopBackgroundColor = Color3.fromRGB(40, 40, 40)
+_G.TopTextColor = Color3.fromRGB(150, 150, 150)
+_G.HubTitleColor = Color3.fromRGB(200, 86, 144)
+_G.WindowBackgroundColor = Color3.fromRGB(40, 40, 40)
+_G.TabWindowColor = Color3.fromRGB(30, 30, 30)
+_G.TabTextColor = Color3.fromRGB(200, 86, 144)
+_G.ImageColor = Color3.fromRGB(180, 180, 180)
+_G.ElementTextColor = Color3.fromRGB(180, 180, 180)
+_G.ElementThemeColor = Color3.fromRGB(200, 86, 144)
+--end
+
+local DinoWindow = Dino:CreateWindow("Sanda#9197 Dino UI", "Dino")
+local DinoPage = DinoWindow:NewPage("Page")
+local DinoElement = DinoPage:NewSection("TEST")
+
+
+DinoElement:CreateButton("Kill All NPC", "rbxassetid://7839505809", function()
+    warn("ALL DONE")
+end)
+DinoElement:CreateToggle("AutoFarm", "rbxassetid://7832083744", function(State)
+    print(State)
+end)
+DinoElement:CreateSlider("WalkSpeed", "rbxassetid://7839722369", 16, 20, function(value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+DinoElement:CreateTextBox("Print Value", "rbxassetid://7832050494", "Enter Value", function(text)
+    print(text)
+end)
+local DinoDropdown = DinoElement:CreateDropdown("Select Player", "rbxassetid://7831282709", {"1", "2", "3"}, function(list)
+    print(list)
+end)
+
+DinoElement:CreateButton("Refresh Dropdown", "rbxassetid://7839505809", function()
+    DinoDropdown:RefreshDropdown({"New 1", "New 2", "New 3"})
+end)
